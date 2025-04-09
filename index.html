@@ -17,7 +17,7 @@
         :root {
             /* Colors - Final Soft Background Palette Adjustment */
             --color-white: #ffffff;
-            --color-gray-50: #f2f4f7;   /* Used for fog blobs - Changed from #edf0f2 (Even Lighter Gray) */
+            --color-gray-50: #f2f4f7;   /* Used for fog blobs */
             --color-gray-200: #e5e7eb; /* Used for borders */
             --color-gray-400: #9ca3af;
             --color-gray-500: #6b7280;
@@ -31,8 +31,8 @@
             --color-link-bsky-hover:  #0ea5e9; /* Sky-600 */
 
             /* Static BG Blob Colors - Final Soft Adjustment */
-            --blob1-color-initial: #d8d0fc; /* Final Softer Lavender - Changed from #cfc1fd */
-            --blob2-color-initial: #c0c9fd; /* Final Softer Indigo - Changed from #b2c0fd */
+            --blob1-color-initial: #d8d0fc; /* Final Softer Lavender */
+            --blob2-color-initial: #c0c9fd; /* Final Softer Indigo */
 
             /* Fonts */
             --font-sans: 'Inter', sans-serif;
@@ -55,9 +55,9 @@
             --space-2: 0.5rem;
             --space-3: 0.75rem;
             --space-4: 1rem;
-            --space-6: 1.5rem;
-            --space-8: 2rem;
-            --space-12: 3rem;
+            --space-6: 1.5rem;  /* New default padding */
+            --space-8: 2rem;    /* Old default padding */
+            --space-12: 3rem;   /* Desktop padding */
 
             /* Borders */
             --border-radius-xl: 0.75rem; /* 12px */
@@ -128,9 +128,9 @@
         body {
             min-height: 100vh;
             display: flex;
-            align-items: center;
+            align-items: center; /* Still vertically center if space allows */
             justify-content: center;
-            padding: var(--space-8) var(--space-4); /* py-8 px-4 */
+            padding: var(--space-8) var(--space-4); /* py-8 px-4 - Keep some padding */
             font-family: var(--font-sans);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -150,7 +150,9 @@
                 blobMove2 40s ease-in-out infinite,
                 blobMove3 35s ease-in-out infinite alternate,
                 blobMove4 45s ease-in-out infinite;
-            overflow: hidden;
+            /* Allow vertical scroll, hide horizontal */
+            overflow-x: hidden;
+            /* overflow: hidden; /* REMOVED */
         }
 
         /*------------------------------------*\
@@ -165,11 +167,13 @@
             backdrop-filter: blur(var(--blur-lg));
             border-radius: var(--border-radius-xl);
             box-shadow: var(--shadow-lg);
-            padding: var(--space-8); /* Default padding */
+            padding: var(--space-6); /* Default padding reduced for mobile */
             text-align: center;
             animation: fadeIn 0.8s ease-out forwards;
             transition: box-shadow var(--transition-duration) var(--transition-timing),
                         transform var(--transition-duration) var(--transition-timing);
+            margin-top: auto; /* Push card towards center vertically if space allows */
+            margin-bottom: auto; /* Push card towards center vertically if space allows */
         }
 
         .card:hover {
@@ -309,7 +313,9 @@
         \*------------------------------------*/
         @media (min-width: 768px) {
             .card {
-                padding: var(--space-12); /* md:p-12 */
+                padding: var(--space-12); /* md:p-12 - Restore larger padding */
+                 margin-top: 0; /* Reset auto margin if needed, though flex centering handles it */
+                 margin-bottom: 0;
             }
 
             .profile-image {
