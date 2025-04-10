@@ -29,6 +29,7 @@
             --color-link-email-hover: #2563eb; /* Blue-600 */
             --color-link-insta-hover: #db2777; /* Pink-600 */
             --color-link-bsky-hover:  #0ea5e9; /* Sky-600 */
+            --color-link-x-hover: #000000; /* Black for X */
 
             /* Static BG Blob Colors - Final Soft Adjustment */
             --blob1-color-initial: #d8d0fc; /* Final Softer Lavender */
@@ -289,24 +290,18 @@
         }
 
         .contact-link {
-            color: var(--color-gray-700);
-            transition: color var(--transition-duration-short) var(--transition-timing),
-                        text-decoration-color var(--transition-duration-short) var(--transition-timing); /* Added text-decoration-color */
             font-size: var(--text-sm);
             font-weight: var(--font-semibold);
-            text-decoration: none; /* Remove default underline */
+            text-decoration: underline;
         }
 
         .contact-link:hover {
-            text-decoration: underline;
-            text-decoration-color: currentColor; /* Ensure underline matches text color */
         }
 
-        /* Specific hover colors */
-        .contact-link.email:hover { color: var(--color-link-email-hover); text-decoration-color: var(--color-link-email-hover);}
-        .contact-link.instagram:hover { color: var(--color-link-insta-hover); text-decoration-color: var(--color-link-insta-hover);}
-        .contact-link.bluesky:hover { color: var(--color-link-bsky-hover); text-decoration-color: var(--color-link-bsky-hover);}
-
+        .contact-link.email { color: var(--color-link-email-hover); text-decoration-color: var(--color-link-email-hover);}
+        .contact-link.instagram { color: var(--color-link-insta-hover); text-decoration-color: var(--color-link-insta-hover);}
+        .contact-link.x { color: var(--color-link-x-hover); text-decoration-color: var(--color-link-x-hover);}
+        .contact-link.bluesky { color: var(--color-link-bsky-hover); text-decoration-color: var(--color-link-bsky-hover);}
 
         /*------------------------------------*\
           #RESPONSIVE STYLES (md breakpoint: 768px)
@@ -340,22 +335,19 @@
             </div>
         <div class="intro-container">
             <h1 class="intro-heading">
-                Hi, I'm [Your Name]
+                Hi, I'm Denzil
                 </h1>
             <p class="intro-paragraph">
-                Welcome to my little corner of the web! This is just a temporary space while I work on building a full website here at dnzl.in.
+                Welcome to my little corner of the web! This is a temporary space while I work on building my personal website.
                 </p>
         </div>
         <div class="bio-section">
              <h2 class="bio-heading">About Me</h2>
              <p class="bio-paragraph">
-                This is where you can write a short paragraph or two about yourself. Mention your interests, profession, or anything else you'd like visitors to know. Keep it concise for this temporary page. You can expand on it when you build the full site!
+                I am an <a href="https://bhasha.io" target="_blank" rel="noopener noreferrer">entrepreneur</a> and an amateur artist. I love nature, art, and technology equally and dream of becoming an indie gamedev someday.
              </p>
         </div>
         <div class="coming-soon-section">
-            <p class="coming-soon-paragraph">
-                Stay tuned for more updates. The complete site is under construction and will be launching soon!
-            </p>
             <div class="domain-display">
                 dnzl.in
             </div>
@@ -368,6 +360,9 @@
                     </a>
                 <a href="https://instagram.com/dnzl.lewis" target="_blank" rel="noopener noreferrer" class="contact-link instagram" aria-label="Visit my Instagram profile">
                     Instagram
+                    </a>
+                <a href="https://x.com/dnzl_is" target="_blank" rel="noopener noreferrer" class="contact-link x" aria-label="Visit my X profile">
+                    X.com
                     </a>
                 <a href="https://bsky.app/profile/dnzllewis.bsky.social" target="_blank" rel="noopener noreferrer" class="contact-link bluesky" aria-label="Visit my Bluesky profile">
                     Bluesky
